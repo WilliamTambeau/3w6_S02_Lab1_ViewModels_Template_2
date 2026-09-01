@@ -5,6 +5,15 @@
 
 <h1>Type: @Model.ZombieType.TypeName</h1>
 
+@if (Model.ZombiesList.Count > 0)
+{
+    <h3>Nombre de zombies: @Model.ZombiesCount</h3>
+    <h3>Moyenne des points: @Model.PointsAverage</h3>
+} else
+{
+    <div class="alert alert-danger">No associated zombie for this type</div>
+}
+
 <div class="row">
     @*  POUR CHAQUE ZOMBIE:*@
     @foreach (var item in Model.ZombiesList)
@@ -17,11 +26,7 @@
         </div>
     }
 </div>
-@* SI AUCUN ZOMBIE ASSOCIÉ*@
-@if (Model.ZombiesList.Count == 0)
-{
-    <div class="alert alert-danger">No associated zombie for this type</div>
-}
+
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
