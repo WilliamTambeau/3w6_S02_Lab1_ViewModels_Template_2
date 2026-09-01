@@ -14,7 +14,8 @@ public class BaseDonnees
         {
             new ZombieType() { TypeName = "Virus", Id = 1 },
             new ZombieType() { TypeName = "Contact", Id = 2 },
-            new ZombieType() { TypeName = "Radioactif", Id = 3 }
+            new ZombieType() { TypeName = "Radioactif", Id = 3 },
+            new ZombieType() { TypeName = "Nanobot", Id = 4 }
         };
 
         //Remplir la liste des Zombies
