@@ -1,55 +1,26 @@
-﻿@model ZombieParty.Models.Zombie
-@{
-    ViewData["Title"] = "Create";
-}
-<h1>Create</h1>
-<h4>Zombie</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <div class="row p-3 ">
-            <form asp-action="Create">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group row">
-                    <div class="col-4">
-                        <label asp-for="Name" class="control-label"></label>
-                    </div>
-                    <div class="col-8">
-                        <input asp-for="Name" class="form-control" />
-                        <span asp-validation-for="Name" class="text-danger"></span>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-4">
-                        <label asp-for="Point" class="control-label"></label>
-                    </div>
-                    <div class="col-8">
-                        <input asp-for="Point" class="form-control" />
-                        <span asp-validation-for="Point" class="text-danger"></span>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-4">
-                        <label asp-for="ZombieTypeId" class="control-label"></label>
-                    </div>
-                    <div class="col-8">
-                        <select class="form-control form-select" asp-for="ZombieTypeId" asp-items="@ViewBag.ZombieTypes"></select>
-                        <span asp-validation-for="ZombieTypeId" class="text-danger"></span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-primary" />
-                </div>
-            </form>
+﻿<div class="container p-3">
+
+    <div class="row pt-4">
+        <div class="col-10">
+            <h2 class="text-primary">Zombie</h2>
+        </div>
+        <div class="col-2 text-right">
+            <a asp-action="Create" class="btn btn-success">
+                Create New Zombie
+            </a>
         </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+
+    <div class="row">
+        @foreach (var item in this.ViewBag.MaListe)
+        {
+            <div href="#" class="card  border m-3 text-center bg-warning" style="width: 20rem; background-image: url('/images/imagesLayout/Fond.png'); ">
+                <div class="card-body  text-warning">
+                    <h3 class="card-title"> @item.Name </h3>
+                    <h5> @item.Point </h5>
+                </div>
+            </div>
+        }
+    </div>
 </div>
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-}
